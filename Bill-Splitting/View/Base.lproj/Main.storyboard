@@ -134,9 +134,12 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="RECALCULATE">
+                                                <state key="normal" title="CALCULATE">
                                                     <color key="titleColor" red="0.87450981139999995" green="0.46274507050000002" blue="0.41568624970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="calculateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ita-DK-L3o"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -166,25 +169,26 @@
                     <connections>
                         <outlet property="numOfPeopleUILabel" destination="md7-K4-jCX" id="iRc-b8-Uw9"/>
                         <outlet property="totalTipUITextField" destination="7j6-Jb-Vl7" id="A97-8j-tWq"/>
+                        <segue destination="VAi-q2-6dF" kind="presentation" identifier="resultSegue" id="CqV-XP-lpT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="MdN-es-FlS">
             <objects>
-                <viewController id="VAi-q2-6dF" sceneMemberID="viewController">
+                <viewController id="VAi-q2-6dF" customClass="ResultViewController" customModule="Bill_Splitting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZZ-Bv-kqe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hak" translatesAutoresizingMaskIntoConstraints="NO" id="z0o-cP-rrr">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="784"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="d95-8X-CMp">
-                                <rect key="frame" x="0.0" y="108.00000000000001" width="393" height="170.33333333333337"/>
+                                <rect key="frame" x="0.0" y="49.000000000000014" width="393" height="170.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oK-0W-eae">
                                         <rect key="frame" x="160" y="0.0" width="73.333333333333314" height="29"/>
@@ -207,7 +211,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tf-bh-Fbh">
-                                <rect key="frame" x="91.666666666666686" y="447" width="210" height="55"/>
+                                <rect key="frame" x="91.666666666666686" y="388" width="210" height="55"/>
                                 <color key="backgroundColor" red="0.87450981139999995" green="0.46274507050000002" blue="0.41568624970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="9O6-Xr-HXR"/>
@@ -218,6 +222,9 @@
                                 <state key="normal" title="RECALCULATE">
                                     <color key="titleColor" red="0.90196079019999997" green="0.87450981139999995" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="recalculateButtonPressed:" destination="VAi-q2-6dF" eventType="touchUpInside" id="1FX-fQ-crH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ViX-4l-bgU"/>
@@ -234,6 +241,10 @@
                             <constraint firstItem="z0o-cP-rrr" firstAttribute="leading" secondItem="ViX-4l-bgU" secondAttribute="leading" id="ugf-IU-OKf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billSplitUILabel" destination="FXV-Zy-PtD" id="Mfm-SJ-uhS"/>
+                        <outlet property="descriptionForResultUILabel" destination="hTH-co-suj" id="fI1-kG-jNo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obF-3L-NV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
