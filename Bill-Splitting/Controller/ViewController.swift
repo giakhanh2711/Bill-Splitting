@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBAction func percentButtonPressed(_ sender: UIButton) {
         tipPercent = sender.titleLabel!.text!
         sender.backgroundColor = UIColor.orange
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
             sender.backgroundColor = UIColor.clear
         }
     }
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             let resultVC = segue.destination as! ResultViewController
             let totalBill = totalTipUITextField.text!
             tipCalculator.updateInfo(tipPercent: tipPercent, numPeople: numPeople)
-            let tipSplit = tipCalculator.calculateTip(billAmount: totalBill, )
+            let tipSplit = tipCalculator.calculateTip(billAmount: totalBill)
             resultVC.updateResultValue(billSplit: tipSplit ?? 0.0,
                                     descriptionForResult: tipCalculator.getDescription())
         }

@@ -22,7 +22,8 @@ struct TipCalculator {
         formatter.numberStyle = .percent
         
         if let tipPercentNumber = formatter.number(from: tipPercent){
-            let totalBillAmount = Float(billAmount)! * (1 + tipPercentNumber.floatValue / 100)
+            let totalBillAmount = Float(billAmount)! * (1 + tipPercentNumber.floatValue)
+            print(tipPercentNumber, totalBillAmount)
             return totalBillAmount / Float(numPeople)
         }
         return nil
